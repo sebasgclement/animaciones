@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* CSS */
+      .card {
+        width: 280px;
+        padding: 20px;
+        border-radius: 12px;
+        background-color: #f4f4f4;
+        color: #333;
+        text-align: center;
+        font-family: sans-serif;
+        transition: all 0.3s ease;
+      }
+
+      /* Esta clase se la encargaremos a JS */
+      .modo-oscuro {
+        background-color: #1e1e1e;
+        color: #ffffff;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- HTML -->
+    <div class="card" id="tarjeta">
+      <img src="https://via.placeholder.com/100" alt="Avatar" />
+      <h2>Estudiante Dev</h2>
+      <p>¡Casi termino el segundo módulo!</p>
+
+      <div class="acciones">
+        <button id="btn-modo">🌙 Modo Oscuro</button>
+        <button id="btn-like">❤️ <span id="contador">0</span> Likes</button>
+      </div>
+    </div>
+    <script>
+      // Capturamos los elementos del HTML
+      const tarjeta = document.querySelector("#tarjeta");
+      const btnModo = document.querySelector("#btn-modo");
+      const btnLike = document.querySelector("#btn-like");
+      const textoContador = document.querySelector("#contador");
+
+      btnModo.addEventListener("click", () => {
+        tarjeta.classList.toggle("modo-oscuro");
+      });
+
+      let likes = 0;
+
+      btnLike.addEventListener("click", () => {
+        likes = likes + 1;
+        textoContador.textContent = likes;
+      });
+    </script>
+  </body>
+</html>

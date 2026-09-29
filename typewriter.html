@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Botón y Typewriter</title>
+    <style>
+      body {
+        background: #22262e;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        padding: 2rem;
+      }
+
+      .btn {
+        position: relative;
+        font-weight: 700;
+        color: #fff;
+        cursor: pointer;
+        border: 2px solid orange;
+        background: transparent;
+        padding: 0.7rem 1.6rem;
+        border-radius: 8px;
+        overflow: hidden;
+        z-index: 0;
+        width: fit-content;
+      }
+      .btn::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: orange;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.35s ease;
+        z-index: -1;
+      }
+      .btn:hover {
+        color: #22262e;
+      }
+      .btn:hover::before {
+        transform: scaleX(1);
+      }
+
+      .type {
+        font-family: monospace;
+        font-size: 1.2rem;
+        color: #fff;
+        border-right: 3px solid orange;
+        white-space: nowrap;
+        overflow: hidden;
+        width: 0;
+        animation:
+          typing 2.5s steps(24) forwards,
+          caret 0.7s step-end infinite;
+      }
+      @keyframes typing {
+        to {
+          width: 15ch;
+        }
+      }
+      @keyframes caret {
+        50% {
+          border-color: transparent;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <button class="btn">Pasá el mouse</button>
+    <div class="type">Hola, soy Sebas</div>
+  </body>
+</html>

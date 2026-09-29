@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Rango de animación</title>
+    <style>
+      @keyframes move {
+        0% {
+          transform: translateX(0);
+          background: orange;
+        }
+        100% {
+          transform: translateX(180px);
+          background: crimson;
+        }
+      }
+      .ball {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: orange;
+        animation: move 3s linear forwards;
+        animation-delay: -1.5s; /* arranca a mitad del recorrido */
+        animation-play-state: paused; /* empieza frenada */
+      }
+      .ball.playing {
+        animation-play-state: running;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="ball" id="ball"></div>
+    <button
+      onclick="document.getElementById('ball').classList.toggle('playing')"
+    >
+      Pausar / Reanudar
+    </button>
+  </body>
+</html>
